@@ -8,10 +8,11 @@ const DB_NAME = process.env.DB_NAME || 'notes-api';
 
 /* eslint-disable no-console */
 (async () => {
-  console.log(`Connecting to ${MONGODB_URI} ...`);
-  const client = new MongoClient(MONGODB_URI, { useNewUrlParser: true });
-  await client.connect();
-  const db = client.db(DB_NAME);
+  // console.log(`Connecting to ${MONGODB_URI} ...`);
+  // const client = new MongoClient(MONGODB_URI, { useNewUrlParser: true });
+  // await client.connect();
+  // const db = client.db(DB_NAME);
+  const db = { collection: () => {} }; // fake database
 
   console.log(`Starting API server on port ${PORT} ...`);
   const app = express();
