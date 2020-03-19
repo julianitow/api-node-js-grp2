@@ -15,8 +15,8 @@ const {
 
 // prevent axios from throwing exceptions for non-200 http responses
 axios.interceptors.response.use(
-  response => response,
-  error => Promise.resolve(error.response),
+  (response) => response,
+  (error) => Promise.resolve(error.response),
 );
 
 // golden path / success cases

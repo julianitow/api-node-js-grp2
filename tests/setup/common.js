@@ -16,7 +16,7 @@ const EXPIRED_TOKEN = [
   'YF_IxVjelsTP_vQxJJyEFcFwV8Ip3c-6LPMFA0Yc91o',
 ].join('.');
 
-const passToken = token => ({ headers: { 'x-access-token': token } });
+const passToken = (token) => ({ headers: { 'x-access-token': token } });
 
 module.exports = {
   DUMMY_OID,
