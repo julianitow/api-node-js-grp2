@@ -9,8 +9,8 @@ This repository contains automated tests to help students self-evaluate their im
 ## Usage
 
 ```
-$ git clone https://github.com/adrienjoly/ava-tests-for-note-keeper.git
-$ cd ava-tests-for-note-keeper
+$ git clone https://github.com/adrienjoly/cours-nodejs-project-tester.git
+$ cd cours-nodejs-project-tester
 $ npm install
 $ npm test     # to run tests using a in-memory database
 ```
