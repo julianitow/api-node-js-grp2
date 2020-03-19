@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Automated tests for https://adrienjoly.com/cours-nodejs/05-proj/",
   "main": "server.js",
+  "engines": {
+    "node": "12.15"
+  },
+  "engineStrict": true,
   "scripts": {
     "start": "node server.js",
     "lint": "eslint .",
@@ -10,7 +14,7 @@
     "test": "ava --verbose ./tests/all.test.js"
   },
   "devDependencies": {
-    "ava": "1.0.1",
+    "ava": "^3.5.0",
     "axios": "^0.18.0",
     "babel-runtime": "^6.26.0",
     "eslint": "^5.15.2",

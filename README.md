@@ -11,6 +11,7 @@ This repository contains automated tests to help students self-evaluate their im
 ```
 $ git clone https://github.com/adrienjoly/cours-nodejs-project-tester.git
 $ cd cours-nodejs-project-tester
+$ nvm use # to switch to the version of Node.js specified in .nvmrc
 $ npm install
 $ npm test     # to run tests using a in-memory database
 ```
