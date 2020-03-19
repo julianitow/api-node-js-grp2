@@ -1,10 +1,10 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
+// const { MongoClient } = require('mongodb');
 const initApiEndpoints = require('./app');
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
-const DB_NAME = process.env.DB_NAME || 'notes-api';
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+// const DB_NAME = process.env.DB_NAME || 'notes-api';
 
 /* eslint-disable no-console */
 (async () => {
