@@ -159,6 +159,36 @@ app.put('/notes', async (req, res) => {
         ...note
       }
     });
+  } else {
+    res.status(500).send("Internal server error.");
   }
-  res.status(500).send("Internal server error.");
+})
+
+app.patch('/notes/:id', async (req, res) => {
+  const token = req.get('x-access-token');
+  if(!token) return res.status(401).json('Unauthorize user');
+  const col = await getCol('notes');
+  const decoded = await authenticateToken(token);
+  const user = await findUserByid(decoded.id);
+  const note = await col.findOne({ _id: ObjectID(req.params.id) });
+  if (!note) {
+    res.status(NOTFOUND).send("Cet identifiant est inconnu");
+  }
+  if (note.userId.toString() !== user._id.toString()) {
+    res.status(FORBIDDEN).send("Accès non autorisé à cette note");
+  }
+  if(req.body.content != undefined) {
+    await col.updateOne(
+      { _id: ObjectID(req.params.id) },
+      {$set: req.body }
+    );
+    const _note = await col.findOne({ _id: ObjectID(req.params.id) });
+    res.status(SUCCESS).send({
+      error: null,
+      note: _note,
+    });
+  } else {
+    res.status(500).send("Internal server error.");
+  }
+  
 })
