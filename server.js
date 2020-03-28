@@ -37,7 +37,7 @@ app.post('/', (req, res) => {
    
   // Route POST /signup
   app.post('/signup',async function (req, res, next) {
-
+    //console.log("inscription");
      var user = await findUser(req.body.username);
 
       if (!req.body.username || !req.body.password) {
@@ -93,8 +93,37 @@ app.post('/', (req, res) => {
     });
     
   // Route POST /signin
-  app.post('/signin',function(req,res, err){
-    console.log("connexion");
+  app.post('/signin',async function(req,res, err){
+    //console.log("connexion");
+    var user = await findUser(req.body.username);
+
+    if(!user) {
+      var erreur = "Cet identifiant est inconnu"
+      var code = 403
+      var token = null;
+    }
+
+    else if(req.body.password != user.password ) {
+      var erreur = "Mot de passe incorrect"
+      var code = 403
+      var token = null;
+    }
+  
+    else {
+    var erreur = null;
+    var code = 400;
+    var token = jwt.sign({
+    exp: Math.floor(Date.now() / 1000) + (60 * 60) * 24,
+    username: req.body
+    },privateKey);
+
+    }
+ 
+ return res.status(code).json({
+    error: erreur,
+    token: token,
+});
+
   });
 
   app.listen(3000, function () {
