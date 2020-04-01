@@ -192,3 +192,8 @@ app.patch('/notes/:id', async (req, res) => {
   }
   
 })
+
+app.get('/notes', async (res, req) => {
+  
+  res.status(200).send("OK");
+})
