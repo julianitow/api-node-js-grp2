@@ -216,7 +216,7 @@ app.get('/notes', async (res, req) => {
 
   }
 
-  ©console.log(user);
+  console.log(user);
   
   res.status(200).send("OK");
 })
