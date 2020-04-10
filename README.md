@@ -46,4 +46,4 @@ $ npm start     # to run the server localy
 
 ## References
 
-- Exercise goals and instructions: [API de gestion de notes personnelles](
+- Exercise goals and instructions: [API de gestion de notes personnelles]
