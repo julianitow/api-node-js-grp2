@@ -25,7 +25,7 @@ module.exports = ({ test }) => {
   let dbClient; // the same database client will be used for all tests
 
   test.before('global setup', async () => {
-  // MongoDBServer.debug = true;
+    //MongoDBServer.debug = true;
     await MongoDBServer.start();
     const MONGODB_URI = await MongoDBServer.getConnectionString();
 

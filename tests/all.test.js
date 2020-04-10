@@ -32,7 +32,7 @@ test('POST /signup returns a token', async (t) => {
   t.is(res.status, 200);
   t.is(res.data.error, null);
   t.is(typeof res.data.token, 'string');
-// t.log({ token: res.data.token });
+  //t.log({ token: res.data.token });
 });
 
 test('POST /signin returns a token for an existing user', async (t) => {
