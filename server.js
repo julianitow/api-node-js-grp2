@@ -59,6 +59,9 @@ async function authenticateToken(token) {
   } catch (err) { log(err.stack); }
 })();
 
+app.listen(3000, function () {
+  log('API listening on port 3000!');
+});
 
 app.get('/', function (req, res) {
   res.send('hello world');
