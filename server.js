@@ -26,6 +26,7 @@ app.use(express.json());
 const log = console.log;
 
 async function getCol(colName) {
+  const db = client.db(dbName); 
   return db.collection(colName);
 }
 
